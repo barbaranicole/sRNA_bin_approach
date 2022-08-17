@@ -28,18 +28,20 @@ def bin_to_RPM(bin, total_reads):
 
 # agrupar bins de forma consecutiva y que pasen un trshold determinado 
 def bin_group(chromosome, treshold = 0.5):
+    
     consecutive_bins = [[]] #iniciar la generacion de listas
     
-    for bin, rpm in enumerate(chromosome): # lista de posiciones (bin) y valores (rpm)
+    for bin, rpm in enumerate(list(chromosome.values())): # lista de posiciones (bin) y valores (rpm)
         
         if rpm > treshold: #si el rpm es mayor al treshold
-            consecutive_bins[-1].append(bin) # agrega el valor a la lista anterior para generar la susecion de numeros
+            consecutive_bins[-1].append(list(chromosome.keys())[bin]) # agrega el valor a la lista anterior para generar la susecion de numeros
         elif len(consecutive_bins[-1]) != 0: #si un valor no cumple la condicion y ademas la lista anterior tiene valores dentro genera una nueva lista
             consecutive_bins.append([])
 
     if len(consecutive_bins[-1]) == 0:
          consecutive_bins.remove([])
     return consecutive_bins
+    
 
 
 #clusteriza los bins de acuerdo a su distancia con otros clusters secuenciales
