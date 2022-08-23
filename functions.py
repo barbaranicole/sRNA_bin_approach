@@ -31,7 +31,7 @@ def bin_group(chromosome, treshold = 0.5):
     
     consecutive_bins = [[]] #iniciar la generacion de listas
     
-    for bin, rpm in enumerate(list(chromosome.values())): # lista de posiciones (bin) y valores (rpm)
+    for bin, rpm in enumerate(rpm_values): # lista de posiciones (bin) y valores (rpm)
         
         if rpm > treshold: #si el rpm es mayor al treshold
             consecutive_bins[-1].append(list(chromosome.keys())[bin]) # agrega el valor a la lista anterior para generar la susecion de numeros
