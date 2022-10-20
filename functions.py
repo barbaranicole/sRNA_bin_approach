@@ -14,7 +14,7 @@ def pos_to_bin(p, b=50, overlap=False):
         bin = bin * 2 + 1        
     else:
         bin = bin * 2
-
+    bin += 1
     return(bin)
 
 #calcula los RPM de cada bin 
