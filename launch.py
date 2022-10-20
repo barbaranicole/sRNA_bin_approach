@@ -12,10 +12,12 @@ parser.add_argument('--bam', help='Bam file already trimmed for be analyzed', ty
 parser.add_argument('--bin_size', help='Size of the bins, default: 50pb', type = int, default=50, required=False)
 parser.add_argument('--rpm_t', help='Treshold for aggrouping the bins by rpm, default: 0.5 rpm', type = int, default=0.5, required=False)
 parser.add_argument('--bin_t', help='Treshold for how many bins are between clusters, default: 2 bins', type = int, default=2, required=False)
+parser.add_argument('--output', help='name of the result folder', type = str, default='bin_results')
 
 args = vars(parser.parse_args())
 
-path = './bin_results'
+folder = args['output']
+path = './' + folder
 os.mkdir(path)
 
 #lectura del archivo bam 
